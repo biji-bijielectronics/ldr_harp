@@ -3,7 +3,7 @@ int led_pin = 13;
 int sound_pin = 3;
 int initial_read = 0;
 
-int threshold = 25;
+int threshold = 50;
 
 int state = 0; 
 
@@ -35,7 +35,7 @@ void loop() {
   int sensorValue = analogRead(A0);
   // print out the value you read:
   //Serial.println(sensorValue);
-  if(sensorValue > initial_read + threshold){
+  if(sensorValue < initial_read - threshold){
     digitalWrite(led_pin, HIGH);
     if(state == 0){
       state =1;
